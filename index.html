@@ -1097,6 +1097,11 @@
   body.theme-ai .panel-head::before, body.theme-ai .cat-header::before {
     content: ""; width: 14px; height: 14px; border-radius: 50%; background: var(--dot, var(--pk-frame)); flex-shrink: 0;
   }
+  body.theme-ai .panel.pc1 { --dot: var(--yl); }
+  body.theme-ai .panel.pc2 { --dot: var(--gr); }
+  body.theme-ai .panel.pc3 { --dot: var(--sk); }
+  body.theme-ai .panel.pc4 { --dot: var(--lv); }
+  body.theme-ai .panel.pc5 { --dot: var(--pk); }
   body.theme-ai .panel-head h2 { font-size: 18px; font-weight: 600; color: var(--ink); }
   body.theme-ai .panel-head .panel-note { color: var(--ink-light); }
   .win-btns { display: none; }
@@ -1138,12 +1143,15 @@
     background: #fff; border: 2px solid #f0f0f0 !important; border-radius: 18px; margin-bottom: 10px;
   }
   body.theme-ai .faq-item.cat-plain:hover { border-color: var(--zc-soft) !important; background: #fff; }
-  body.theme-ai .faq-item.cat-plain.open { background: var(--zc-soft) !important; border-color: var(--zc-soft) !important; }
+  body.theme-ai .faq-item.cat-plain.open { background: #fff !important; border-color: var(--zc) !important; }
+  body.theme-ai .faq-item.open .faq-q { background: var(--zc-soft); }
+  body.theme-ai .faq-item.open .faq-a-inner { padding-top: 16px; color: #444; }
   body.theme-ai .faq-item .q-badge {
     width: 30px; height: 30px; border-radius: 50%; background: var(--zc-soft) !important; color: var(--zq) !important;
     font-size: 13px; font-weight: 800; margin-top: -3px;
   }
   body.theme-ai .faq-item.open .q-badge { background: #fff !important; }
+  body.theme-ai .faq-item .tip, body.theme-ai .faq-item .warn, body.theme-ai .faq-item .quote { background: #f6f6f6; }
   body.theme-ai .faq-q-text { color: var(--ink); font-weight: 600; }
   body.theme-ai .faq-a-inner { color: var(--ink-mid); padding-left: 60px; }
   body.theme-ai .q-tag { border-radius: 999px; padding: 3px 10px; }
@@ -1159,7 +1167,6 @@
   body.theme-ai .warn { color: var(--pk-deep); }
   body.theme-ai .warn .tip-icon { background: var(--pk-soft); color: var(--pk-deep); }
   body.theme-ai .quote .tip-icon { background: var(--lv-soft); color: #5560c4; }
-  body.theme-ai .faq-item:not(.open) .tip { background: var(--bar); }
   body.theme-ai code { background: var(--pk-soft); color: var(--pk-deep); border-radius: 6px; }
   body.theme-ai kbd { border-radius: 8px; }
 
@@ -1183,6 +1190,94 @@
     body.theme-ai .faq-a-inner { padding-left: 14px; }
     body.theme-hub .header-inner { margin: 10px 10px 0; padding: 10px 14px; }
     body.theme-hub .header-text p { font-size: 15px; gap: 8px; }
+  }
+
+  /* ===================== 문의 게시판 (귀여운 파스텔) ===================== */
+  .c-win { display: none; }
+  body.theme-ai .contact-overlay, body.theme-hub .contact-overlay { background: rgba(60,40,50,.35); }
+  body.theme-ai .contact-popup, body.theme-hub .contact-popup {
+    border-radius: 30px; border: 12px solid var(--pk-frame); box-shadow: 0 18px 50px rgba(224,85,138,.25);
+    max-width: 520px; padding-bottom: 6px;
+  }
+  body.theme-ai .contact-header, body.theme-hub .contact-header {
+    background: var(--bar); color: var(--ink); margin: 14px 14px 0; border-radius: 16px; padding: 12px 12px 12px 18px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  body.theme-ai .contact-header::before, body.theme-hub .contact-header::before {
+    content: ""; width: 14px; height: 14px; border-radius: 50%; background: var(--pk); flex-shrink: 0;
+  }
+  body.theme-ai .contact-header h3, body.theme-hub .contact-header h3 { font-size: 17px; font-weight: 700; color: var(--ink); }
+  body.theme-ai .c-win, body.theme-hub .c-win { display: inline-flex; gap: 6px; margin-left: auto; }
+  .c-win i { width: 26px; height: 26px; border-radius: 7px; position: relative; display: block; }
+  .c-win .w1 { background: var(--yl-soft); } .c-win .w2 { background: var(--sk-soft); }
+  .c-win .w1::after { content: ""; position: absolute; left: 7px; right: 7px; top: 12px; height: 2.5px; background: #fff; border-radius: 2px; }
+  .c-win .w2::after { content: ""; position: absolute; inset: 7px; border: 2.5px solid #fff; border-radius: 3px; }
+  body.theme-ai .contact-close, body.theme-hub .contact-close {
+    width: 26px; height: 26px; border-radius: 7px; background: #f7a9c4; color: #fff; opacity: 1;
+    font-size: 20px; font-weight: 700; line-height: 26px; padding: 0; text-align: center;
+  }
+  body.theme-ai .contact-close:hover, body.theme-hub .contact-close:hover { background: var(--pk); }
+
+  body.theme-ai .contact-tabs, body.theme-hub .contact-tabs {
+    margin: 16px 24px 0; padding: 5px; background: var(--bar); border-radius: 999px; border: none; gap: 4px;
+  }
+  body.theme-ai .contact-tab-btn, body.theme-hub .contact-tab-btn {
+    background: transparent; border: none; border-radius: 999px; color: var(--ink-mid); padding: 10px; margin: 0;
+  }
+  body.theme-ai .contact-tab-btn.active, body.theme-hub .contact-tab-btn.active {
+    background: var(--pk); color: #fff; border: none; margin: 0; box-shadow: 0 3px 10px rgba(242,124,166,.3);
+  }
+  body.theme-ai .contact-body p, body.theme-hub .contact-body p { color: var(--ink-mid); }
+  body.theme-ai .contact-field label, body.theme-hub .contact-field label { color: var(--ink); font-weight: 600; }
+  body.theme-ai .contact-field input, body.theme-ai .contact-field textarea, body.theme-ai .contact-field select,
+  body.theme-hub .contact-field input, body.theme-hub .contact-field textarea, body.theme-hub .contact-field select {
+    background: #f6f6f6; border: 2px solid transparent; border-radius: 14px; padding: 11px 14px; color: var(--ink);
+  }
+  body.theme-ai .contact-field input:focus, body.theme-ai .contact-field textarea:focus, body.theme-ai .contact-field select:focus,
+  body.theme-hub .contact-field input:focus, body.theme-hub .contact-field textarea:focus, body.theme-hub .contact-field select:focus {
+    background: #fff; border-color: var(--pk-frame); box-shadow: 0 0 0 4px var(--pk-soft);
+  }
+  body.theme-ai .contact-field input[type=checkbox], body.theme-hub .contact-field input[type=checkbox] { width: 16px; padding: 0; }
+  body.theme-ai .contact-submit, body.theme-hub .contact-submit {
+    background: var(--pk); border-radius: 999px; padding: 14px; font-weight: 700; box-shadow: 0 6px 16px rgba(242,124,166,.3);
+  }
+  body.theme-ai .contact-submit:hover, body.theme-hub .contact-submit:hover { background: var(--pk-deep); opacity: 1; }
+  .contact-result .result-icon {
+    width: 64px; height: 64px; margin: 0 auto 14px; border-radius: 50%; background: var(--pk-soft, #fde6ee);
+    color: var(--pk-deep, #e0558a); font-size: 32px; font-weight: 800; line-height: 64px;
+  }
+  .contact-result .result-icon.fail { background: #f0f0f0; color: #888; }
+  body.theme-ai .contact-result .result-msg, body.theme-hub .contact-result .result-msg { color: var(--ink); }
+
+  body.theme-ai .board-count, body.theme-hub .board-count { color: var(--ink-light); }
+  body.theme-ai .board-item, body.theme-hub .board-item { border: 2px solid #f0f0f0; border-radius: 18px; padding: 14px 16px; }
+  body.theme-ai .board-item:hover, body.theme-hub .board-item:hover { border-color: var(--pk-frame); }
+  body.theme-ai .board-item-name, body.theme-hub .board-item-name { color: var(--ink); }
+  body.theme-ai .board-item-type, body.theme-hub .board-item-type { border-radius: 999px; padding: 3px 10px; }
+  body.theme-ai .board-type-운영문의, body.theme-hub .board-type-운영문의 { background: var(--sk-soft); color: #1f7fb0; }
+  body.theme-ai .board-type-오류신고, body.theme-hub .board-type-오류신고 { background: var(--pk-soft); color: var(--pk-deep); }
+  body.theme-ai .board-type-개선요청, body.theme-hub .board-type-개선요청 { background: var(--yl-soft); color: #8a6a00; }
+  body.theme-ai .board-type-기타, body.theme-hub .board-type-기타 { background: var(--lv-soft); color: #5560c4; }
+  body.theme-ai .board-item-message, body.theme-hub .board-item-message { color: var(--ink-mid); }
+  body.theme-ai .board-reply, body.theme-hub .board-reply { background: var(--pk-soft); border: none; border-radius: 14px; }
+  body.theme-ai .board-reply-label, body.theme-hub .board-reply-label {
+    display: inline-block; background: #fff; color: var(--pk-deep); border-radius: 999px; padding: 2px 10px;
+  }
+  body.theme-ai .board-no-reply, body.theme-hub .board-no-reply { font-style: normal; color: var(--ink-light); }
+  .board-book.z1 { background: #fde6ee; color: #c23d72; border-radius: 999px; }
+  .board-book.z2 { background: #fdf0c4; color: #8a6a00; border-radius: 999px; }
+  .board-book.z3 { background: #c9ecfc; color: #1f7fb0; border-radius: 999px; }
+  .board-book.err { background: #e3e6fc; color: #5560c4; border-radius: 999px; }
+  .board-secret { font-size: 11px; font-weight: 600; background: #f0f0f0; color: #888; border-radius: 999px; padding: 2px 8px; margin-left: 4px; }
+  body.theme-ai .board-book.ai, body.theme-hub .board-book.ai { background: var(--pk-soft); color: var(--pk-deep); border-radius: 999px; }
+  body.theme-ai .contact-fab-label, body.theme-hub .contact-fab-label { background: var(--pk-deep); border-radius: 999px; }
+
+  @media (max-width: 600px) {
+    body.theme-ai .contact-popup, body.theme-hub .contact-popup { border-width: 7px; border-radius: 22px; }
+    body.theme-ai .contact-header, body.theme-hub .contact-header { margin: 10px 10px 0; }
+    body.theme-ai .contact-tabs, body.theme-hub .contact-tabs { margin: 12px 16px 0; }
+    body.theme-ai .c-win, body.theme-hub .c-win { display: none; }
+    body.theme-ai .contact-close, body.theme-hub .contact-close { margin-left: auto; }
   }
 </style>
 </head>
@@ -1240,22 +1335,25 @@
 <div class="contact-overlay" id="contactOverlay" onclick="if(event.target===this)this.classList.remove('open')">
   <div class="contact-popup">
     <div class="contact-header">
-      <h3>📮 문의 게시판</h3>
-      <button class="contact-close" onclick="document.getElementById('contactOverlay').classList.remove('open')">&times;</button>
+      <h3>문의 게시판</h3>
+      <span class="c-win" aria-hidden="true"><i class="w1"></i><i class="w2"></i></span>
+      <button class="contact-close" aria-label="닫기" onclick="document.getElementById('contactOverlay').classList.remove('open')">&times;</button>
     </div>
     <div class="contact-tabs">
-      <button class="contact-tab-btn active" onclick="switchContactTab('write',this)">✏️ 문의 작성</button>
-      <button class="contact-tab-btn" onclick="switchContactTab('board',this)">📋 문의 목록</button>
+      <button class="contact-tab-btn active" onclick="switchContactTab('write',this)">문의 작성</button>
+      <button class="contact-tab-btn" onclick="switchContactTab('board',this)">문의 목록</button>
     </div>
     <div class="contact-body">
       <div class="contact-panel active" id="panelWrite">
         <div id="contactForm">
           <p>교재 운영 중 궁금한 점이나 개선 사항이 있으면 편하게 남겨 주세요.</p>
           <div class="contact-field">
-            <label>교재</label>
+            <label>구분</label>
             <select id="cBook">
-              <option value="AI상상창작소">AI 상상창작소</option>
-              <option value="공통">공통</option>
+              <option value="ZONE 1 (1~4강)">ZONE 1 (1~4강)</option>
+              <option value="ZONE 2 (5~12강)">ZONE 2 (5~12강)</option>
+              <option value="ZONE 3 (13~24강)">ZONE 3 (13~24강)</option>
+              <option value="교재 오류">교재 오류</option>
             </select>
           </div>
           <div class="contact-field">
@@ -1267,22 +1365,13 @@
             <input type="email" id="cEmail" placeholder="답변받을 이메일 주소" required>
           </div>
           <div class="contact-field">
-            <label>문의 유형</label>
-            <select id="cType">
-              <option value="운영 문의">운영 문의</option>
-              <option value="오류 신고">오류 신고</option>
-              <option value="개선 요청">개선 요청</option>
-              <option value="기타">기타</option>
-            </select>
-          </div>
-          <div class="contact-field">
             <label>문의 내용</label>
             <textarea id="cMessage" placeholder="문의 내용을 자세히 작성해 주세요"></textarea>
           </div>
           <div class="contact-field" style="display:flex;align-items:center;gap:10px">
             <label style="margin:0;cursor:pointer;display:flex;align-items:center;gap:6px">
-              <input type="checkbox" id="cSecret" onchange="document.getElementById('cPwWrap').style.display=this.checked?'block':'none'" style="width:16px;height:16px;accent-color:#14b8a6">
-              🔒 비밀글
+              <input type="checkbox" id="cSecret" onchange="document.getElementById('cPwWrap').style.display=this.checked?'block':'none'" style="width:16px;height:16px;accent-color:#f27ca6">
+              비밀글로 남기기
             </label>
           </div>
           <div class="contact-field" id="cPwWrap" style="display:none">
@@ -1519,19 +1608,19 @@ ai: {
   ],
   panels: {
     'p-unblock': {
-      title:'사이트 차단해제 요청서', note:'학교 PC 접속이 막혔을 때',
+      title:'사이트 차단해제 요청서',
       html:'<p>학교 PC에서 로블록스 등 수업 사이트 접속이 막혀 있다면 차단 해제 요청서를 내야 해요. 양식은 지역 교육청마다 다를 수 있으니 학교 전산 담당자와 함께 확인해 주세요.</p>'
         + '<div class="embed doc"><iframe src="https://drive.google.com/file/d/1In6vGe9yqwh7_VN-0HZsWtevQGMgk52L/preview" allow="autoplay" loading="lazy" title="사이트 차단해제 요청서 PDF"></iframe></div>'
         + '<a class="dl-btn" href="https://drive.google.com/file/d/1In6vGe9yqwh7_VN-0HZsWtevQGMgk52L/view?usp=drive_link" target="_blank" rel="noopener">구글 드라이브에서 열기</a>'
     },
     'p-gyro': {
-      title:'12강 자이로 센서 테스트 방법', note:'휴대폰 기울기 게임',
+      title:'12강 자이로 센서 테스트 방법',
       html:'<p>12강 갤러그 게임을 휴대폰에서 기울여 조작해 볼 때 참고하는 자료예요. 캔바 링크로는 센서가 작동하지 않을 수 있으니, 아래 방법을 따라 테스트해 주세요.</p>'
         + '<div class="embed doc"><iframe src="https://drive.google.com/file/d/14eeoZX6PG75QtMVFfSPDCTi10bmyZCw8/preview" allow="autoplay" loading="lazy" title="12강 자이로 센서 테스트 방법 PDF"></iframe></div>'
         + '<a class="dl-btn" href="https://drive.google.com/file/d/14eeoZX6PG75QtMVFfSPDCTi10bmyZCw8/view?usp=drive_link" target="_blank" rel="noopener">구글 드라이브에서 열기</a>'
     },
     'p-join': {
-      title:'활용 프로그램 가입 안내', note:'캔바 · 로블록스',
+      title:'활용 프로그램 가입 안내',
       html:'<p>수업에 쓰는 프로그램의 계정 만들기 방법을 PDF로 정리해 두었어요. 아래 목록에서 파일을 누르면 새 창에서 PDF를 볼 수 있어요.</p>'
         + '<h3>가입 안내 자료</h3>'
         + '<div class="embed folder"><iframe src="https://drive.google.com/embeddedfolderview?id=10ptl1ud7_u7aVMwOqB6m9M8cvpQ1RUd4#list" loading="lazy" title="활용 프로그램 가입 안내 자료"></iframe></div>'
@@ -1801,7 +1890,7 @@ function renderBook(key) {
   searchInput.placeholder = B.placeholder;
   searchInput.value = '';
   searchCount.textContent = '';
-  document.getElementById('cBook').value = key === 'ai' ? 'AI상상창작소' : '마크모어타운';
+  setBookSelect(key === 'ai' ? 'AI상상창작소' : '마크모어타운');
 
   /* 탭 */
   const faqCats = B.cats.filter(c => c.key !== 'trouble');
@@ -1828,7 +1917,8 @@ function renderBook(key) {
   let m = '';
   Object.keys(B.panels).forEach(pk => {
     const P = B.panels[pk];
-    m += '<section class="panel hidden" data-panel="' + pk + '"><div class="panel-head"><h2>' + P.title + '</h2>' + (P.note ? '<span class="panel-note">' + P.note + '</span>' : '') + '<span class="win-btns" aria-hidden="true"><i class="w1"></i><i class="w2"></i><i class="w3"></i></span></div><div class="panel-body">' + P.html + '</div></section>';
+    const pIdx = B.tabs.findIndex(x => x.key === pk);
+    m += '<section class="panel hidden' + (pIdx >= 0 ? ' pc' + (pIdx % 6 + 1) : '') + '" data-panel="' + pk + '"><div class="panel-head"><h2>' + P.title + '</h2>' + (P.note ? '<span class="panel-note">' + P.note + '</span>' : '') + '<span class="win-btns" aria-hidden="true"><i class="w1"></i><i class="w2"></i><i class="w3"></i></span></div><div class="panel-body">' + P.html + '</div></section>';
   });
   if (B.checklist) m += buildChecklist(key, B);
 
@@ -2000,10 +2090,14 @@ route();
    - 문의 내용 앞에 [교재 이름]을 붙여 보내요.
    ========================================================= */
 const GS_URL = 'https://script.google.com/macros/s/AKfycbzgpK48r1rF_BGjeoxXTgmkfD9lrXbLPCKL-QW0tFfoneBaxTjDMTlFJT9xkkXg9egz8g/exec';
-const BOOK_TAG = /^\[(AI상상창작소|마크모어타운|공통)\]\s*/;
+const BOOK_TAG = /^\[(AI상상창작소|마크모어타운|공통|ZONE 1 \(1~4강\)|ZONE 2 \(5~12강\)|ZONE 3 \(13~24강\)|교재 오류)\]\s*/;
+function setBookSelect(v) {
+  const sel = document.getElementById('cBook');
+  if ([...sel.options].some(o => o.value === v)) sel.value = v;
+}
 
 function openContact() {
-  if (currentBook) document.getElementById('cBook').value = currentBook === 'ai' ? 'AI상상창작소' : '마크모어타운';
+  if (currentBook) setBookSelect(currentBook === 'ai' ? 'AI상상창작소' : '마크모어타운');
   document.getElementById('contactOverlay').classList.add('open');
 }
 function switchContactTab(tab, btn) {
@@ -2018,7 +2112,8 @@ async function submitContact() {
   const book = document.getElementById('cBook').value;
   const name = document.getElementById('cName').value.trim();
   const email = document.getElementById('cEmail').value.trim();
-  const type = document.getElementById('cType').value;
+  const typeEl = document.getElementById('cType');
+  const type = typeEl ? typeEl.value : '';
   const raw = document.getElementById('cMessage').value.trim();
   const isSecret = document.getElementById('cSecret').checked;
   const pw = document.getElementById('cPw').value.trim();
@@ -2041,7 +2136,8 @@ async function submitContact() {
 function showResult(success) {
   document.getElementById('contactForm').style.display = 'none';
   document.getElementById('contactResult').classList.add('show');
-  document.getElementById('resultIcon').textContent = success ? '✅' : '❌';
+  document.getElementById('resultIcon').textContent = success ? '✓' : '!';
+  document.getElementById('resultIcon').classList.toggle('fail', !success);
   document.getElementById('resultMsg').innerHTML = success
     ? '문의가 등록되었어요.<br>문의 목록에서 확인할 수 있어요.'
     : '보내지 못했어요.<br>인터넷 연결을 확인하고 다시 보내 주세요.';
@@ -2050,19 +2146,19 @@ function resetContact() {
   document.getElementById('contactForm').style.display = 'block';
   document.getElementById('contactResult').classList.remove('show');
   ['cName','cEmail','cMessage','cPw'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('cType').selectedIndex = 0;
+  const typeEl = document.getElementById('cType'); if (typeEl) typeEl.selectedIndex = 0;
   document.getElementById('cSecret').checked = false;
   document.getElementById('cPwWrap').style.display = 'none';
 }
 function bookChip(text) {
   const m = String(text || '').match(BOOK_TAG);
   if (!m) return { chip: '', body: String(text || '') };
-  const cls = m[1] === 'AI상상창작소' ? 'ai' : (m[1] === '마크모어타운' ? 'more' : '');
+  const cls = { 'AI상상창작소':'ai', '마크모어타운':'more', 'ZONE 1 (1~4강)':'z1', 'ZONE 2 (5~12강)':'z2', 'ZONE 3 (13~24강)':'z3', '교재 오류':'err' }[m[1]] || '';
   return { chip: '<span class="board-book ' + cls + '">' + m[1] + '</span>', body: String(text).replace(BOOK_TAG, '') };
 }
 function replyBlock(reply) {
   const r = esc(reply || '');
-  return r ? '<div class="board-reply"><div class="board-reply-label">💬 답변</div><div class="board-reply-text">' + r + '</div></div>'
+  return r ? '<div class="board-reply"><div class="board-reply-label">답변</div><div class="board-reply-text">' + r + '</div></div>'
            : '<div class="board-no-reply">답변 대기 중...</div>';
 }
 async function loadBoard() {
@@ -2078,15 +2174,15 @@ async function loadBoard() {
     items.forEach(item => {
       let content;
       if (item.isSecret) {
-        content = '<div class="board-secret-wrap" id="secret-' + item.idx + '"><div class="board-item-message" style="color:#999">🔒 비밀글입니다.</div>'
-          + '<div style="margin-top:8px;display:flex;align-items:center;gap:8px"><input type="password" maxlength="4" inputmode="numeric" placeholder="비밀번호" id="pw-' + item.idx + '" style="width:100px;padding:6px 10px;border:1.5px solid #cde8d4;border-radius:8px;font-size:13px;text-align:center;letter-spacing:4px">'
-          + '<button onclick="verifySecret(' + item.idx + ')" style="padding:6px 14px;background:#14b8a6;color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer">확인</button></div></div>';
+        content = '<div class="board-secret-wrap" id="secret-' + item.idx + '"><div class="board-item-message" style="color:#999">비밀글입니다. 비밀번호를 입력하면 볼 수 있어요.</div>'
+          + '<div style="margin-top:8px;display:flex;align-items:center;gap:8px"><input type="password" maxlength="4" inputmode="numeric" placeholder="비밀번호" id="pw-' + item.idx + '" class="board-pw" style="width:100px;padding:6px 10px;border:1.5px solid #f3d0dc;border-radius:999px;font-size:13px;text-align:center;letter-spacing:4px">'
+          + '<button onclick="verifySecret(' + item.idx + ')" style="padding:7px 16px;background:#f27ca6;color:#fff;border:none;border-radius:999px;font-size:12px;font-weight:600;cursor:pointer">확인</button></div></div>';
       } else {
         const b = bookChip(item.message);
         content = '<div class="board-item-message">' + b.chip + esc(b.body) + '</div>' + replyBlock(item.reply);
       }
-      html += '<div class="board-item"><div class="board-item-header"><span class="board-item-name">' + esc(item.name || '') + (item.isSecret ? ' 🔒' : '') + '</span>'
-        + '<span class="board-item-type board-type-' + typeClass(item.type) + '">' + esc(item.type || '기타') + '</span></div>'
+      html += '<div class="board-item"><div class="board-item-header"><span class="board-item-name">' + esc(item.name || '') + (item.isSecret ? ' <span class="board-secret">비밀글</span>' : '') + '</span>'
+        + (item.type ? '<span class="board-item-type board-type-' + typeClass(item.type) + '">' + esc(item.type) + '</span>' : '') + '</div>'
         + content + '<div class="board-item-date">' + esc(item.date || '') + '</div></div>';
     });
     box.innerHTML = html;
